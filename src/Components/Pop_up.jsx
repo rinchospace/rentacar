@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-function Pop_up(props) {
+const Pop_up = (props) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -11,36 +11,35 @@ function Pop_up(props) {
 
     return (
         <>
-            
-                <button className="log_in" onClick={handleShow}>RESERVE</button>
+            <Button className="log_in" onClick={handleShow}>ВЫБРАТЬ</Button>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Reserve a {props.name}</Modal.Title>
+                    <Modal.Title>Забронировать {props.name}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>Name & Surname</Form.Label>
+                            <Form.Label>Имя & Фамилия</Form.Label>
                             <Form.Control
                                 type="name"
-                                placeholder="Enter your name and surname"
+                                placeholder="Введите своё имя и фамилию"
                                 autoFocus
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput">
-                            <Form.Label>Location</Form.Label>
+                            <Form.Label>Местоположение</Form.Label>
                             <Form.Control
                                 type="city"
-                                placeholder="Enter your location"
+                                placeholder="Введите своё местоположение"
                                 autoFocus
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput3">
-                            <Form.Label>Phone number</Form.Label>
+                            <Form.Label>Номер Телефона</Form.Label>
                             <Form.Control
                                 type="Number"
-                                placeholder="Enter your phone number"
+                                placeholder="Введите свой номер телефона"
                                 autoFocus
                             />
                         </Form.Group>
@@ -48,7 +47,7 @@ function Pop_up(props) {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={handleClose}>
-                        Send us
+                        Отправить
                     </Button>
                 </Modal.Footer>
             </Modal>

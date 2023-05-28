@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    position: relative;
+}
+
+main {
+    padding-right: 20%;
+    padding-left: 20%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: rgb(250, 250, 250);
+}
+
+/*Наши машины*/
+.bigblock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 60px;
+}
+
+/*Карусель*/
+.glvniz {
+
+    display: flex;
+    margin-left: 225px;
+}
+
+.txthome {
+    margin-left: 50px;
+    width: 500px;
+    font-size: 5px;
+}
+
+.cbox {
+    width: 300px;
+    display: inline-block;
+}
+
+
+/*Ознакомление*/
+.oznakom{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.video{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}

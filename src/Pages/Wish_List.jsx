@@ -1,8 +1,8 @@
-import React, {Component} from 'react'
+import React, {Component, useEffect, useState} from 'react'
 import Pop_up from '../Components/Pop_up';
 import Todo from '../Components/Todo';
 import {Container} from "react-bootstrap";
-import '../Styles/Wishl.css'
+import '../Styles/Wishl.css';
 
 import bst1 from '../images/bst1.png';
 import bst2 from '../images/bst2.png';
@@ -13,9 +13,20 @@ import p2 from "../images/p2.png";
 import p3 from "../images/p3.png";
 import p4 from "../images/p4.png";
 import p5 from "../images/p5.png";
+import {useFetching} from "../Hooks/useFetching";
+import CarsService from "../Components/Api/CarService";
+import CarsApi from "../Components/CarsApi";
 
-export default class Contacts extends Component {
-    render() {
+const Wish_List = () => {
+    const [cars, setCars] = useState([])
+    const [fetchCars, isCarsLoading, carsError] = useFetching(async () => {
+        const cars = await CarsService.getAll()
+        setCars(cars)
+    })
+
+    useEffect(() => {
+        fetchCars()
+    }, [])
         return (
             <>
                 <Container className='main'>
@@ -77,6 +88,15 @@ export default class Contacts extends Component {
                             <Pop_up name='Cadillac Escalade'/>
                         </div>
                     </div>
+
+
+                    {
+                        carsError && <div className="load">${carsError}</div>
+                    }
+                    {
+                        cars.length ? <CarsApi cars={cars}/> : <div className="f_games">Нет свободных машин:(</div>
+                    }
+
 
                     <div>
                         <h1>Возрастные ограничения и условия трудоустройства:</h1>
@@ -158,5 +178,6 @@ export default class Contacts extends Component {
                 </Container>
             </>
         )
-    }
 }
+
+export default Wish_List;

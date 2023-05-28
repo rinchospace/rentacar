@@ -52,7 +52,7 @@ function Todo() {
         onChange={handleInputChange}
       />
       <button className="buttoninput" onClick={handleButtonClick}>
-        Add
+        Добавить
       </button>
       <ul className="todolist">
         {todoList.map(todo => (
@@ -61,13 +61,13 @@ function Todo() {
             <button
               className="check-button"
               onClick={() => handleCheckButtonClick(todo.id)}
-            >Done
+            >Использовано
               <i className="fa-solid fa-check"></i>
             </button>
             <button
               className="trash-button"
               onClick={() => handleTrashButtonClick(todo.id)}
-            >Delete
+            >Убрать
               <i className="fa-solid fa-trash"></i>
             </button>
           </li>
